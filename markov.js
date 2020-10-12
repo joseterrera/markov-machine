@@ -5,6 +5,7 @@ class MarkovMachine {
  
 
   constructor(text) {
+    // split on all space or new line
     let words = text.split(/[ \r\n]+/);
     this.words = words.filter(c => c !== "");
     this.makeChains();

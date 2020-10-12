@@ -28,3 +28,44 @@ function makeText(path) {
   });
 
 }
+
+
+
+/** read URL and make text from it. */
+
+
+async function makeURLText(url) {
+  let resp;
+
+  try {
+    resp = await axios.get(url);
+  } catch (err) {
+    console.error(`Cannot read URL: ${url}: ${err}`);
+    process.exit(1);
+  }
+  generateText(resp.data)
+}
+
+
+/** interpret cmdline to decide what to do. */
+
+let [method, path] = process.argv.slice(2);
+
+
+if (method === "file") {
+  makeText(path);
+}
+
+else if (method === "url") {
+  makeURLText(path);
+}
+
+else {
+  console.error(`Unknown method: ${method}`);
+  process.exit(1);
+}
+
+
+//  node makeText.js file eggs.txt
+//  node makeText.js url http://www.gutenberg.org/files/11/11-0.txt
+
