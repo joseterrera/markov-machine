@@ -49,6 +49,7 @@ async function makeURLText(url) {
 
 /** interpret cmdline to decide what to do. */
 
+//skip first two
 let [method, path] = process.argv.slice(2);
 
 

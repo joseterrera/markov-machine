@@ -1,9 +1,4 @@
-
-
 class MarkovMachine {
-
- 
-
   constructor(text) {
     // split on all space or new line
     let words = text.split(/[ \r\n]+/);
@@ -18,13 +13,18 @@ class MarkovMachine {
 
   makeChains() {
     let chains = new Map();
-
+    console.log('chains', chains)
+    
     for (let i = 0; i < this.words.length; i += 1) {
       let word = this.words[i];
       let nextWord = this.words[i + 1] || null;
 
-      if (chains.has(word)) chains.get(word).push(nextWord);
-      else chains.set(word, [nextWord]);
+      if (chains.has(word)) {
+        chains.get(word).push(nextWord);
+      }
+      else { 
+        chains.set(word, [nextWord]);
+      }
     }
 
     this.chains = chains;
@@ -45,15 +45,15 @@ class MarkovMachine {
     // pick a random key to begin
     let keys = Array.from(this.chains.keys());
     let key = MarkovMachine.choice(keys);
-    let out = [];
+    let output = [];
 
     // produce markov chain until reaching termination word
-    while (out.length < numWords && key !== null) {
-      out.push(key);
+    while (output.length < numWords && key !== null) {
+      output.push(key);
       key = MarkovMachine.choice(this.chains.get(key));
     }
 
-    return out.join(" ");
+    return output.join(" ");
   }
 }
 
@@ -61,3 +61,11 @@ class MarkovMachine {
 module.exports = {
   MarkovMachine,
 };
+
+
+/**
+ $ node makeText.js file eggs.txt
+... generated text from file 'eggs.txt' ...
+$ node makeText.js url http://www.gutenberg.org/files/11/11-0.txt
+... generated text from that URL ...
+ */
