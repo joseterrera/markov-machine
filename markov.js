@@ -42,8 +42,9 @@ class MarkovMachine {
   /** return random text from chains */
 
   makeText(numWords = 100) {
-    // pick a random key to begin
+    //Array.from creates a shallow copy of an array-like or iterable object
     let keys = Array.from(this.chains.keys());
+    // pick a random key to begin
     let key = MarkovMachine.choice(keys);
     let output = [];
 

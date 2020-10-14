@@ -3,3 +3,17 @@
 It is a sequence of possible events in which the probability of each event depends only on the state attained in the previous event.
 
 So, it esentially predicts on what will happen next based on what just happened.
+
+In the sentence "the cat in the hat", we would create chains based on the next word
+ for text of "the cat in the hat", chains will be.
+ In the text markov.js, it will be:
+ ```js
+ {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} 
+ ```
+ In the text bigram js, we attempt to make a more realistic text by joining two words together, those would be the keys, and the value would be the next word:
+
+  ```js
+  {"the cat": ["in"], "cat in": ["the"], "in the": ["hat"], "the hat": [null]}
+  ```
+
+  In the text markov2.js, we go for a functional programming approach. Instead of a map, we create an object. This example goes a bit further since it 
