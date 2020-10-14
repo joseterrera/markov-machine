@@ -1,5 +1,5 @@
 const sentence = `
-Most men, even in this comparatively free country, through mere ignorance and mistake, are so occupied with the factitious cares and superfluously coarse labors of life that its finer fruits cannot be plucked by them. Their fingers, from excessive toil, are too clumsy and tremble too much for that. Actually, the laboring man has not leisure for a true integrity day by day; he cannot afford to sustain the manliest relations to men; his labor would be depreciated in the market. He has no time to be anything but a machine. How can he remember well his ignorance—which his growth requires—who has so often to use his knowledge? We should feed and clothe him gratuitously sometimes, and recruit him with our cordials, before we judge of him. The finest qualities of our nature, like the bloom on fruits, can be preserved only by the most delicate handling. Yet we do not treat ourselves nor one another thus tenderly.
+Most men, even in this comparatively free country, through mere ignorance and mistake, are so occupied with the factitious cares and superfluously coarse labors of life that its finer fruits cannot be plucked by them. Their fingers, from excessive toil, are too clumsy and tremble too much for that. Actually, the laboring man has not leisure for a true integrity day by day; he cannot afford to sustain the manliest relations to men; his labor would be depreciated in the market. He has no time to be anything but a machine. How can he remember well his ignorance, which his growth requires, who has so often to use his knowledge? We should feed and clothe him gratuitously sometimes, and recruit him with our cordials, before we judge of him. The finest qualities of our nature, like the bloom on fruits, can be preserved only by the most delicate handling. Yet we do not treat ourselves nor one another thus tenderly.
 `
 // helper functions
 
@@ -66,7 +66,7 @@ function buildMap(sentence) {
     currentList.push(normalizeNextWord || null)
   }
 
-  console.log(map)
+  console.log('map markov2', map)
   
   // once we have an object, and our sentence broken down into an array, we start randomizing the order
   const startIndex = getRandomNumber( 0, words.length )
@@ -96,6 +96,6 @@ function buildMap(sentence) {
 
 
 
-buildMap(sentence) //?
+console.log('markov2', buildMap(sentence)) //?
 
 
