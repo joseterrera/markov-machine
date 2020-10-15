@@ -6,7 +6,7 @@ So, it esentially predicts on what will happen next based on what just happened.
 
 
 ### Explaining markov to a non-tech person:
-Imagine you have a text in a language that you don't understand, and you need to render a new paragrah with the words from that original text. How would you render a 'realistic paragragh', something that, even though it is gibberish, almost sounds correct? I never understood much Chomsky's grammatic theories, but I always remember this sentence 'Colorless green ideas sleep furiously'. So, we want to somehow recreate something like that.
+Imagine you have a text in a language that you don't understand, and you need to render a new paragrah with the words from that original text. How would you render a 'realistic paragragh', something that, even though it is gibberish, almost sounds correct? I never understood much Chomsky's grammatic theories, but I always remember this sentence 'Colorless green ideas sleep furiously' and thinking to myself, in what context it could actually mean something? So, we want to somehow recreate some beautiful random gibberish.
 
 We will want to create an object that shows each word and what words can follow that word. So, for the sentence 'the cat in the hat', we would break it down like this, the left side we call it a key, and the right side we call it values:
 
@@ -35,6 +35,31 @@ Now we need to create a new paragraph that initially will be empty. To populate 
 Basically, that is how we make a new paragraph. There are small details that go great lenghts to make our paragraph more realistic, like keeping uppercase after a question mark or exclamation mark. 
 
 
+
+### Algorithm:
+  - Break down sentence into a list of words
+  - Build a key-value table:
+    - The keys will be words and the value will be a list of words.
+    - Go through every words in the supplied text
+    - Populate the table as follows:
+      1. As you go through the words, place the current word as a key in the table
+      2. Look ahead to the next word
+        a. If there is no next word, place a `null` value in the list of words associate to the current word. We are finished building our table.
+        b. If there is a next word, place that word in the associated list.
+      3. Go to the next word and repeat until all words in the supplied text have been used.
+  - Build a new sentence:
+    - Create an empty paragraph array
+    - Grab a random word from the list of words, call it CURRENT_WORD
+    - Check that CURRENT_WORD on the table that we created
+    - Does it have a null value or does it have a list of words or one word attached to it?
+      - If no, then we are done
+      - if yes, then 
+          - add the CURRENT_WORD to the empty paragraph
+          - grab a random word from the values associated to that CURRENT_WORD
+          - make that random word your new CURRENT_WORD and repeat this last question until we are done
+  
+    - Join the new paragraph and make it a string.
+    - Address issues of Capitalization after a period.
 
 
 
