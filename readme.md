@@ -16,7 +16,7 @@ We will want to break down a sentence and create a table or a tree that shows ea
 
 To achieve this, first we will grab our original paragraph and break it down into a list that separates all our words. We call this list 'WORDS'. We go through each word on this list, and we ask ourselves a series of questions every time we have a new word until we finish with all the WORDS from the list:
 1. Have I encountered this word already?
-  if YES, then do nothing for now, we already have.  
+  if YES, then do nothing for now. 
   if NO, then add this word to the object and attach a list to it. The list will hold all the words that can follow this particular word, but initially it is empty.
 2. Has this word that I encountered have a word that follows it?
   if YES, then add that word to the list of words that can follow this word.
