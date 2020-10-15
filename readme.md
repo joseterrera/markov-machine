@@ -17,12 +17,12 @@ We will want to break down a sentence and create a table or a tree that shows ea
 To achieve this, first we will grab our original paragraph and break it down into a list that separates all our words. We call this list 'WORDS'. We go through each word on this list, and we ask ourselves a series of questions every time we have a new word until we finish with all the WORDS from the list:
 1. Have I encountered this word already?
   if YES, then do nothing for now. 
-  if NO, then add this word to the object and attach a list to it. The list will hold all the words that can follow this particular word, but initially it is empty.
+  if NO, then add this word to the table/tree and attach a list to it. The list will hold all the words that can follow this particular word, but initially it is empty.
 2. Has this word that I encountered have a word that follows it?
   if YES, then add that word to the list of words that can follow this word.
   if NO, then add null, no words follow this word.
 
-When we finish going through all the WORDS, we will have an object that will show all the words, and the words that can follow those words.
+When we finish going through all the WORDS, we will have an table that will show all the words, and the words that can follow those words.
 
 Now we need to create a new paragraph that initially will be empty. To populate the new paragraph we will first need to grab a random word from the WORDS list, which we will call CURRENT_WORD, and we will ask:
 * Does the CURRENT_WORD have a word that follows it or does it have a null value attached to it? (check that object we created above)
